@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1422896377 source:c:\users\luca\documents\github\esame-c\programmazione\hw3\main.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+

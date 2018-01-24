@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1409931214 source:c:\users\luca\documents\github\esame-c\programmazione\febbraio\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Albero.h"
+
+1409937521 c:\users\luca\documents\github\esame-c\programmazione\febbraio\albero.h
+
+1409937491 source:c:\users\luca\documents\github\esame-c\programmazione\febbraio\albero.c
+	<stdio.h>
+	<stdlib.h>
+	"Albero.h"
+

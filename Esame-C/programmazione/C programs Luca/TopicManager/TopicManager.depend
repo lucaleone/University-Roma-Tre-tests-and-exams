@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1385128884 source:c:\users\luca\documents\università\c programs\topicmanager\main.c
+	<stdio.h>
+	<stdlib.h>
+	"TopicManager.h"
+
+1385127108 c:\users\luca\documents\università\c programs\topicmanager\topicmanager.h
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+
+1385129527 source:c:\users\luca\documents\università\c programs\topicmanager\topicmanager.c
+	<stdio.h>
+	<stdlib.h>
+	"TopicManager.h"
+

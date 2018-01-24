@@ -1,0 +1,113 @@
+Link esame:
+http://moodle.dia.uniroma3.it/file.php/17/risultati_esami/ASD-2014-01-31-totale-A.pdf
+
+----------
+Es 1
+Scrivi lo pseudocodice della procedura COPIA-ALBERO(T) che accetti
+in input un albero di grado arbitrario T e, senza modificare T, 
+ritorni una copia di T (l’ordine dei figli di ogni nodo non è significativo).
+Puoi assumere che, se T ha n nodi, questi abbiano nei valori del campo
+infotutti gli interi da 0 a n-1. 
+
+Soluzione in modo diverso (pg 6): http://www.dia.uniroma3.it/~patrigna/asd/150-esercizi-di-ricapitolazione-02.pdf
+----------
+
+COPIA-ALBERO(T) 
+	res =null
+	COPIA-ALBERO-AUX(T.root, res, res);
+	return res
+
+
+COPIA-ALBERO-AUX(T, res, par) 
+	if T==null
+		res = null
+	else
+		res.info=T.info
+		if T.right!=null
+			COPIA-ALBERO-AUX(T.right, res.right, res);
+		else
+			res.right=null
+		if T.left!=null
+			COPIA-ALBERO-AUX(T.left, res.left, res);
+		else
+			res.left=null
+		if T.parent!=null
+			res.parent = par
+		else
+			res.parent=null
+
+-----------------------
+Esercizio 2
+Scrivi lo pseudocodice della procedura ORDINE-BFS(A,u) che accetti 
+in input un grafo non orientato A e l’indice di un nodo u e restituisca 
+una lista L di interi in cui gli indici dei nodi compaiono nell’ordine 
+con cuisono stati raggiunti nella visita in ampiezza di A a partire da u.
+Assumi che il grafo sia connesso. 
+Scrivi anche la procedura che aggiunge un elemento alla lista.
+-----------------------
+
+ORDINE-BFS(A,u) 
+	for i=0 to A.length-1
+		color[i]=0
+	color[u]=1
+	Add(nexts, u)
+	while nexts!=null
+		temp = pop(nexts)
+		Add(res, temp)
+		x = A[temp]
+		while x !=null
+			k= x.key
+			if color[k]==0
+				color[k]=1
+				Add(nexts, k)
+			x=x.next
+
+complessità O(f(n*m)) // n righe e m colonne matrice di adiacenza
+non è omega perche ancuni nodi n possono avere un numero di nodi adiacenza minore di m
+
+
+Add(list, val) //list è una lista con campi info e next (settato a null se non esiste)
+	while list!=null
+		list=list.next
+	list.info=val
+	list.next=null
+
+complessità O(f(n)) //n numero elementi list
+
+pop(list)
+	if list==null
+		error
+	temp = list.info
+	list=list.next
+	return temp
+
+complessità O(f(1)) e omega(f(1)) quindi il problema è theta(f(1))
+
+-------------------
+Esercizio 3
+Scrivi lo pseudocodice della procedura RIMOZIONE(L,A) che accetti 
+in input una lista di interi doppiamente concatenata L 
+e un array di interi A 
+e rimuova da L (se esistono) tutti gli elementi di A. 
+-------------------
+	
+RIMOZIONE(L,A)
+	while L!=null
+		for i=0 to A.length
+			if L.info == A[i]
+				L.next.prev = L.prev
+				break
+		L=L.next
+		
+
+Complessita O(f(n*m)) dove n è il numeo degli elementi di L e m quelli di A
+il limite superiore è quindi f(n*m)
+NON è Omega(f(n*m)) in quanto il problema potrebbe essere risolto in meno di f(n*m), che quindi non è il limite inferiore
+di conseguenza non è theta 
+
+------------------------------------
+
+
+
+
+

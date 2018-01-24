@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1401456526 source:c:\users\luca\documents\università\c programs\alberobello\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Albero.h"
+
+1401456119 source:c:\users\luca\documents\università\c programs\alberobello\albero.c
+	"Albero.h"
+	<stdio.h>
+	<stdlib.h>
+
+1401456569 c:\users\luca\documents\università\c programs\alberobello\albero.h
+
+1401111820 source:c:\users\luca\documents\università\c programs\alberobello\listaalberi.c
+	"Albero.h"
+	"ListaAlberi.h"
+	<stdio.h>
+	<stdlib.h>
+
+1401111811 c:\users\luca\documents\università\c programs\alberobello\listaalberi.h
+

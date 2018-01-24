@@ -1,0 +1,119 @@
+Metodi sui file in C
+
+FILE *fp;
+
+-per aprire un file 
+
+FILE * fopen(nomefile, modalità)  >restituisce un puntatore a FILE
+con nomefile = stringa che indica il nome del file e
+modalità = stringa con caratteri r,w,a,b,+ combinati a piacere
+
+
+
+-per chiudere
+
+int fclose(FILE *fp)
+
+
+
+-inserire un carattere
+
+int fputc(int c, FILE *pf)   >restituisce EOF se errore, c se tutto ok
+con c = carattere da scrivere 
+pf = puntatore al file
+
+
+
+-ottenere un carattere
+
+int fgetc(FILE *pf)   >ritorna il carattere letto, EOF in caso di errore
+
+
+
+-ottenere una stringa
+
+char* fgets(char *s, int n, FILE *fp)   >ritorna una stringa(NB: con tanto di carattere di fine stringa) o NULL se errore
+con s = puntatore alla stringa che verrà valorizzata dal metodo
+n = usare sizeof
+
+
+
+-inserire una stringa
+
+int fputs(char *s, FILE *fp)  >ritorna 0, se errore EOF
+con s = stringa da inserire
+
+
+
+-leggere caratteri secondo uno specifico formato
+
+int fscanf(FILE *pf, str_cont, elementi)  >ritorna il numero di caratteri letti, se errore EOF
+con str_cont = stringa di contesto (es: "%d %s\n")
+elementi = variabili in cui verranno salvati i caratteri (dall'esempio di sopra avrò bisogno di mettere come elementi un intero e una stringa)
+
+
+
+-inserire una stringa(metodo migliore e più flessibile)
+
+int fprintf(FILE *pf, str_cont, elementi)   >ritorna il numero di caratteri scritti, se errore un numero negativo
+con str_cont e elementi = vedi sopra
+
+
+
+---------------------------------------------------------
+ERRORI
+feof(FILE *fp) restituisce 0 se è stata raggiunta la fine del file
+
+ferror(FILE *fp) restituisce 0 se si è verificato un errore
+
+perror(FILE *fp) stampa una stringa seguita da un messaggio con il tipo di errore commesso
+
+---------------------------------------------------------
+ACCESSO CASUALE
+un file ad accesso casuale presenta record di lunghezza fissa.
+
+
+
+-leggere oggetti
+
+int fread(void *buf, int size, int count, FILE *fp)  >ritorna il numero di oggetti letti
+con *buf = puntatore ad una regione di memoria dove saranno archiviati i dati(la struttura di solito)
+size = lunghezza del singolo dato (sizeof)
+count = quanti oggetti leggere
+
+
+
+-scrivere oggetti
+
+int fwrite(void *buf, int size, int count, FILE *fp)   >ritorna il numero di oggetti scritti
+con *buf, size e count come sopra
+
+
+
+-determinare una posizione su file(le istruzioni di I/O ripartiranno da lì)
+
+int fseek(FILE *fp, long s, int o)   >ritorna 0, se errore un valore diverso da 0
+con s = spiazzamento
+o = origine
+
+Come funziona? Riporta la lettura/scrittura sul file ad una posizione che è a s byte di distanza da o
+
+Valori di o:
+SEEK_SET dall'inizio
+SEEK_CUR dalla posizione corrente
+SEEK_END dalla fine del file
+
+Come definire s?
+long ftell(FILE *fp)   >restituisce la posizione corrente sul file, se errore un numero negativo. 0 = inizio file
+
+
+
+-settare una posizione su file
+
+int fsetpos(FILE *fp, fpos_t, *currentpos)  >restituisce un valore nullo se errore
+
+
+
+-ottenere la posizione attuale sul file
+
+int fgetpos(FILE *fp, fpos_t, *currentpos)  >restituisce un valore nullo se errore

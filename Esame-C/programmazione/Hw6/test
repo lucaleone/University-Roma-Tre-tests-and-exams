@@ -1,0 +1,60 @@
+
+TEST1 (verifica con un albero contenente un nodo con il valore dato ma tale nodo non è una foglia): FAILURE
+TEST2 (verifica con un albero contenente un nodo foglia con il valore dato): FAILURE
+TEST3 (verifica con un albero vuoto): SUCCESS
+TEST4 (verifica con un albero non contenente nessun nodo con il valore dato): SUCCESS
+void albero_camminoAUX(albero T, int v, int **cammino)
+{
+    if(T != NULL)
+    {
+        printf("Non è nullo\n");
+        int*tmp = *cammino;
+        if (tmp == NULL)
+        {
+            printf("CREO\n");
+            tmp = (int*)malloc(sizeof(int));
+            *cammino=tmp;
+        }
+        *tmp = T->info;
+        printf("Aggiungo elemento: %d al puntatore\n", *tmp);
+        if(T->info == v  )
+        {
+            if(T->dx || T->sx)
+                *cammino = NULL;
+        }
+        else
+        {
+            printf("cerco nei figli\n");
+            tmp++;
+            if(T->info < v && T->dx!=NULL)//destra
+            {
+                printf("Figlio destro\n");
+                albero_camminoAUX(T->dx, v, &tmp);
+                if(tmp==NULL)
+                    *cammino = NULL;
+            }
+            else if(T->info > v && T->sx!=NULL)
+            {
+                printf("Figlio sinistro\n");
+                albero_camminoAUX(T->sx, v, &tmp);
+                if(tmp==NULL)
+                    *cammino = NULL;
+            }
+            else
+                *cammino = NULL;
+        }
+    }
+}
+
+int* albero_cammino(albero T, int v)
+{
+    int *cammino = NULL;
+    if(T != NULL)
+    {
+        printf("Non è nullo\n");
+        //cammino = (int*)malloc(sizeof(int));
+        printf("Chiamo aux\n");
+        albero_camminoAUX(T, v, &cammino);
+    }
+    return cammino;
+}

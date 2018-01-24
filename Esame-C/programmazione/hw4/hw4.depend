@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1417973170 source:c:\users\luca\documents\github\esame-c\programmazione\hw4\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1417973179 source:c:\users\luca\documents\github\esame-c\programmazione\hw4\main1.c
+	<stdio.h>
+	<stdlib.h>
+

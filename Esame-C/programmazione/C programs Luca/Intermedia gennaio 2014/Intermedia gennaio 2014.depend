@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1403029910 source:c:\users\luca\documents\università\c programs\intermedia gennaio 2014\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Albero.h"
+
+1403029145 c:\users\luca\documents\università\c programs\intermedia gennaio 2014\albero.h
+
+1403031864 source:c:\users\luca\documents\università\c programs\intermedia gennaio 2014\albero.c
+	<stdio.h>
+	<stdlib.h>
+	"Albero.h"
+

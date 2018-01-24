@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1385481867 source:c:\users\luca\documents\università\c programs\merge\main.c
+	<stdio.h>
+	<stdlib.h>
+	"listaint.c"
+
+1385473105 c:\users\luca\documents\università\c programs\merge\listaint.h
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+
+1385482441 c:\users\luca\documents\università\c programs\merge\listaint.c
+	<stdio.h>
+	<stdlib.h>
+	"listaint.h"
+

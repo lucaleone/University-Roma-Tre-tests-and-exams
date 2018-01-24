@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1409849573 source:c:\users\luca\documents\github\esame-c\programmazione\scrivifilebinario\main.c
+	<stdio.h>
+	<stdlib.h>
+

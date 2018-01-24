@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1384783592 source:c:\users\luca\documents\università\c programs\studentmanager\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1384778669 source:c:\users\luca\documents\università\c programs\studentmanager\manager.c
+

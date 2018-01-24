@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1422912945 source:c:\users\luca\documents\github\esame-c\programmazione\esercitazione20gen\main.c
+	<stdio.h>
+	<stdlib.h>
+

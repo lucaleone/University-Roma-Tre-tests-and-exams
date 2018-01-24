@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1400514810 source:c:\users\luca\documents\università\c programs\teststring\persone.c
+	"persone.h"
+
+1400514810 c:\users\luca\documents\università\c programs\teststring\persone.h
+
+1400517463 source:c:\users\luca\documents\università\c programs\struttura proj\persone.c
+	<stdio.h>
+	<stdlib.h>
+	"persone.h"
+
+1400516411 c:\users\luca\documents\università\c programs\struttura proj\persone.h
+
+1400517255 source:c:\users\luca\documents\università\c programs\struttura proj\main.c
+	<stdio.h>
+	<stdlib.h>
+	"persone.h"
+

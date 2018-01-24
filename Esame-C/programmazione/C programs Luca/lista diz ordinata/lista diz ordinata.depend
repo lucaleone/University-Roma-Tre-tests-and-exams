@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1400605129 source:c:\users\luca\documents\università\c programs\lista diz ordinata\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pagina.h"
+
+1400605048 c:\users\luca\documents\università\c programs\lista diz ordinata\pagina.h
+
+1400605341 source:c:\users\luca\documents\università\c programs\lista diz ordinata\pagina.c
+	<stdio.h>
+	<stdlib.h>
+	"pagina.h"
+

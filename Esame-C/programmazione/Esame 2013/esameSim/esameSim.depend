@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1391107543 source:c:\users\luca\documents\c es\esamesim\main.c
+	<stdio.h>
+	<stdlib.h>
+	"res.h"
+
+1391107405 c:\users\luca\documents\c es\esamesim\res.h
+
+1391107742 source:c:\users\luca\documents\c es\esamesim\res.c
+	"res.h"
+	<stdio.h>
+	<stdlib.h>
+

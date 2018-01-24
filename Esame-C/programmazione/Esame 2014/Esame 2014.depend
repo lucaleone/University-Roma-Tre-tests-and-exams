@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1401800431 source:c:\users\luca\documents\università\c programs\esame 2014\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1422909340 source:c:\users\luca\documents\github\esame-c\programmazione\esame 2014\albero.c
+	<stdio.h>
+	<stdlib.h>
+	"Albero.h"
+
+1406484598 c:\users\luca\documents\github\esame-c\programmazione\esame 2014\albero.h
+
+1422908162 source:c:\users\luca\documents\github\esame-c\programmazione\esame 2014\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Albero.h"
+
