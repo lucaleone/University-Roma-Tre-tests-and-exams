@@ -1,0 +1,343 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.1
+-- Dumped by pg_dump version 9.4.1
+-- Started on 2015-06-14 17:47:42
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 177 (class 3079 OID 11855)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2038 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 172 (class 1259 OID 65883)
+-- Name: attivita; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE attivita (
+    id bigint NOT NULL,
+    testo character varying(10000) NOT NULL,
+    titolo character varying(255) NOT NULL,
+    url character varying(600),
+    urlimg character varying(600),
+    urlvideo character varying(600),
+    utente_id bigint,
+    comunita_id bigint
+);
+
+
+ALTER TABLE attivita OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 65891)
+-- Name: comunita; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE comunita (
+    id bigint NOT NULL,
+    nome character varying(255)
+);
+
+
+ALTER TABLE comunita OWNER TO postgres;
+
+--
+-- TOC entry 174 (class 1259 OID 65896)
+-- Name: openjpa_sequence_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE openjpa_sequence_table (
+    id smallint NOT NULL,
+    sequence_value bigint
+);
+
+
+ALTER TABLE openjpa_sequence_table OWNER TO postgres;
+
+--
+-- TOC entry 175 (class 1259 OID 65901)
+-- Name: utente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE utente (
+    id bigint NOT NULL,
+    avatar character varying(255),
+    email character varying(255) NOT NULL,
+    facebook character varying(255),
+    linkedin character varying(255),
+    nome character varying(255) NOT NULL,
+    password character varying(255) NOT NULL,
+    sitoweb character varying(255),
+    twitter character varying(255),
+    dtype character varying(255),
+    datacreazione character varying(255),
+    descrizione character varying(10000),
+    descrizionebreve character varying(1000),
+    motto character varying(255),
+    annodinascita character varying(255),
+    biografia character varying(10000),
+    cognome character varying(255),
+    comunita_id bigint
+);
+
+
+ALTER TABLE utente OWNER TO postgres;
+
+--
+-- TOC entry 176 (class 1259 OID 65913)
+-- Name: utente_utente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE utente_utente (
+    utente_id bigint,
+    startupsfollowing_id bigint,
+    membro_id bigint,
+    amici_id bigint
+);
+
+
+ALTER TABLE utente_utente OWNER TO postgres;
+
+--
+-- TOC entry 2026 (class 0 OID 65883)
+-- Dependencies: 172
+-- Data for Name: attivita; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY attivita (id, testo, titolo, url, urlimg, urlvideo, utente_id, comunita_id) FROM stdin;
+63	hello guys !! today is 150!! happy Birthday @Nokia!! fantastic event!!	Willy at Nokia celebrates 150 years!	http://company.nokia.com/en/about-us/our-company	http://company.nokia.com/sites/default/files/frontpage/movie_2048x786.jpg	https://www.youtube.com/watch?v=K4tUNTqN84Q	108	1
+62	hello guysss today I m in Milan, Italy at the Microsoft Build best event!! here in Milan hot day but I could not miss this event for any reason!!!@Microsoft	Willy at Microsoft Build event Milan!!	http://www.hwupgrade.it/news/programmi/microsoft-build-arriva-a-milano-segui-lo-streaming-live_57601.html	http://www.hwupgrade.it/immagini/build_milano.jpg	https://www.youtube.com/watch?v=Cuvmh2Hhdhk	108	1
+60	Hi guyss!! Today Apple presents the new IpadMini!!!I'm here with my friend @brianJimmy YUHUUU #me#bestFriend @Apple	Patty at the presentation of new Apple IpadMini3	https://www.apple.com/ipad-mini-3/	http://darkroom-cdn.s3.amazonaws.com/2014/09/REU-USA-BUSINESS.jpg	https://www.apple.com/ipad/change-everything/	106	1
+57	hello guysss today I am at the best Apple event of June!!!@Apple 	Jimmy at AppleEvent june 2015	https://www.apple.com/it/	http://www.hwupgrade.it/immagini/build_milano.jpghttp://www.tmag.it/wp-content/uploads/2015/06/29d29ea892090b0299a57f0e5c8adcd73a93d5ae_xlarge.jpg	https://www.apple.com/it/environment/#environment-feature-film	105	1
+51	Nokia the movie Celebrating 150 years	Nokia celebrates 150 years	http://company.nokia.com/en/about-us/our-company	http://company.nokia.com/sites/default/files/frontpage/movie_2048x786.jpg	https://www.youtube.com/watch?v=K4tUNTqN84Q	101	1
+54	Samsung lancia nuovo galaxy	Samsung lancia nuovo galaxy	http://www.samsung.com/it/home	http://www.samsung.com/it/galaxy/	https://www.youtube.com/watch?v=jBDLOkWkqcE	103	1
+56	E' trascorso poco più di 1 mese da Build 2015, evento organizzato da Microsoft a San Francisco e incentrato sul mondo degli sviluppatori. Le molte novità presentate in quella cornice sono in queste settimane riproposte da Microsoft in forma itinerante, con appuntamenti organizzati in varie location.Quest'oggi è la volta di Milano, che per la prima volta ospita un evento di questa portata dedicato agli sviluppatori. Per tutti coloro che sono interessati alle conferenze di Build Milano ma non hanno potuto iscriversi per tempo Microsoft mette a disposizione uno streaming live, embeddato di seguito.	Microsoft Build arriva a Milano: segui lo streaming live	http://www.hwupgrade.it/news/programmi/microsoft-build-arriva-a-milano-segui-lo-streaming-live_57601.html	http://www.hwupgrade.it/immagini/build_milano.jpg	https://www.youtube.com/watch?v=Cuvmh2Hhdhk	104	1
+53	Apple presents the new Ipod Touch	New IpodMini3	https://www.apple.com/ipad-mini-3/	https://www.apple.com/ipad/	https://www.apple.com/ipad/change-everything/	102	1
+59	Yo All today Microsoft will finally buy Nokia! I could not miss this event yeahhh!!#Microsoft#Nokia#me#technologyLife @Microsoft	Patty At Microsoft buys Nokia	http://leganerd.com/2014/04/28/microsoft-finalizza-lacquisizione-nokia-nasce-microsoft-mobile/	http://i1.wp.com/leganerd.com/wp-content/uploads/2014/04/msnokia_clk1.jpg?resize=591%2C409	https://www.youtube.com/watch?v=XH91xAGPtsg	106	1
+61	Hello All!! I'm at the presentation of the new Samsung Galaxy YOO!!!Here there are 1000000 people @Samsung	Alad at the presentation of the new Samsung Galaxy	http://www.samsung.com/it/home	http://www.samsung.com/it/galaxy/	https://www.youtube.com/watch?v=jBDLOkWkqcE	107	1
+58	Hi friendsssss!! Today Apple presents the new IpadMini WOWWW I so excited!!I'm with my friend @patrikNerd yeaaa @Apple	Jimmy at the presentation of new Apple IpadMini3	https://www.apple.com/ipad-mini-3/	http://darkroom-cdn.s3.amazonaws.com/2014/09/REU-USA-BUSINESS.jpg	https://www.apple.com/ipad/change-everything/	105	1
+52	Apple event June 2015	Apple event June 2015	https://www.apple.com/it/	http://insideevs.com/wp-content/uploads/2015/02/apple-logo.png	https://www.apple.com/it/environment/#environment-feature-film	102	1
+55	Oggi 25 mila dipendenti Nokia hanno ufficialmente un nuovo datore di lavoro: Microsoft.	Microsoft finalizza l'acquisizione Nokia	http://leganerd.com/2014/04/28/microsoft-finalizza-lacquisizione-nokia-nasce-microsoft-mobile/	http://i1.wp.com/leganerd.com/wp-content/uploads/2014/04/msnokia_clk1.jpg?resize=591%2C409	https://www.youtube.com/watch?v=XH91xAGPtsg	104	1
+\.
+
+
+--
+-- TOC entry 2027 (class 0 OID 65891)
+-- Dependencies: 173
+-- Data for Name: comunita; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY comunita (id, nome) FROM stdin;
+1	SocialStartupComunita
+\.
+
+
+--
+-- TOC entry 2028 (class 0 OID 65896)
+-- Dependencies: 174
+-- Data for Name: openjpa_sequence_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY openjpa_sequence_table (id, sequence_value) FROM stdin;
+0	151
+\.
+
+
+--
+-- TOC entry 2029 (class 0 OID 65901)
+-- Dependencies: 175
+-- Data for Name: utente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY utente (id, avatar, email, facebook, linkedin, nome, password, sitoweb, twitter, dtype, datacreazione, descrizione, descrizionebreve, motto, annodinascita, biografia, cognome, comunita_id) FROM stdin;
+108	http://www.wp7connect.com/wp-content/uploads/2012/06/wpstore1.jpg	gatesWilliam@gmail.com	https://www.facebook.com/pages/Facebook-USA/125296484157657	linkedIn/gatesWilliam	William	gates1991	http://www.wp7connect.com/2012/06/09/microsoft-opens-windows-phone-gear-shop-for-fans/	@gatesWilliam	Membro	\N	\N	\N	\N	1991	Hello All! I'm William Gates ,nephew of the celebrated Bill. I was born in 1991 in Seattle Washington, and like my uncle I am passionate about the new technlogies!! Microsoft lifeStyle!!	Gates	\N
+103	https://upload.wikimedia.org/wikipedia/commons/9/98/Ssbld002.jpg	Samsung@networks.com	https://www.facebook.com/SamsungMobileUSA	LinkedIn/Samsung	Samsung	Samsung	http://www.samsung.com/home	#Samsung	Startup	\N	Samsung is a South-Korean multinational conglomerate company headquartered in Samsung Town, Seoul.	Samsung Electronics	Inspire the World, Create the Future	\N	\N	\N	1
+106	http://manolobig.com/wordpress/wp-content/uploads/2012/01/Microsoft-Pokes-Fun-At-Ridiculous-Smartphone-Habits-in-New-Ad_600_400-300x200.jpg	patrikEliot@hotmail.com	https://www.facebook.com/pages/Facebook-USA/125296484157657	linkedIn/eliotPatrik	Patrik	technolove	http://n-e-r-d.com/	@patrikNerd	Membro	\N	\N	\N	\N	1984 	Hiho All! I'm Patrik Eliot, I am born in New York in 1984. Since I was young I preferred to play videogames instead of playing with other guys. Technology one love!!	Eliot	1
+101	http://www.telefonino.net/new_files/images/global/Nokia-sede_58246_1.jpg	Nokia@networks.com	https://www.facebook.com/nokia	LinkedIn/Nokia	Nokia	Nokia	http://company.nokia.com/en	#Nokia	Startup	\N	Nokia has a long history of successful change and innovation, adapting to shifts in markets and technologies.	Nokia | Networks & Technologies	Connecting People	\N	\N	\N	1
+105	http://guerilla-photographer.smugmug.com/photos/361488549_PESEC-M.jpg	brianJimmy@gmail.com	https://www.facebook.com/pages/official-Apple-Fan-Page/178245638896058	linkedIn/brianJimmy	Jimmy	brian1971	http://www.cultofmac.com/	@brianJimmy	Membro	\N	\N	\N	\N	1971	Hi All! My name is Jimmy Briand, I am 45 and I'm the best Apple fan in the world!I can't miss any Apple event in the world!	Brian	1
+107	http://ww1.prweb.com/prfiles/2011/01/08/643374/SamsungFanZoneEditedDSC1890.JPG	haddidAlad@gmail.com	https://www.facebook.com/SamsungFanPage	linkedIn/haddidAlad	Alad	haddidAlad	https://www.facebook.com/SamsungFanPage	@haddidAlad	Membro	\N	\N	\N	\N	1988	Hello my name is Haddid Alad I was born in Pakistan in 1987 I really like smartphones and I am a big fun of Samsung technologies .	Haddid	1
+104	https://upload.wikimedia.org/wikipedia/commons/1/1a/Microsoft_building_17_front_door.jpg	Microsoft@networks.com	https://www.facebook.com/MicrosoftItalia?brand_redir=20528438720	LinkedIn/Microsoft	Microsoft	Microsoft	https://www.microsoft.com/it-it/default.aspx	#Microsoft	Startup	\N	Microsoft Corporation(commonly known as Microsoft) is an American multinational technology company headquartered in Redmond, Washington, that develops, manufactures, licenses, supports and sells computer software, consumer electronics and personal computers and services.	Microsoft Corporation	Empowering us all	\N	\N	\N	1
+102	https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Headquarters_in_Cupertino.jpg	Apple@networks.com	https://www.facebook.com/pages/Apple-USA/406564306080086	LinkedIn/Apple	Apple	Apple	https://www.apple.com/	#Apple	Startup	\N	Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, online services, and personal computers. 	Apple Inc.	Think different	\N	\N	\N	1
+\.
+
+
+--
+-- TOC entry 2030 (class 0 OID 65913)
+-- Dependencies: 176
+-- Data for Name: utente_utente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY utente_utente (utente_id, startupsfollowing_id, membro_id, amici_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1898 (class 2606 OID 65890)
+-- Name: attivita_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY attivita
+    ADD CONSTRAINT attivita_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1900 (class 2606 OID 65895)
+-- Name: comunita_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY comunita
+    ADD CONSTRAINT comunita_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1902 (class 2606 OID 65900)
+-- Name: openjpa_sequence_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY openjpa_sequence_table
+    ADD CONSTRAINT openjpa_sequence_table_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1905 (class 2606 OID 65910)
+-- Name: u_utente_email; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY utente
+    ADD CONSTRAINT u_utente_email UNIQUE (email);
+
+
+--
+-- TOC entry 1907 (class 2606 OID 65912)
+-- Name: u_utente_nome; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY utente
+    ADD CONSTRAINT u_utente_nome UNIQUE (nome);
+
+
+--
+-- TOC entry 1909 (class 2606 OID 65908)
+-- Name: utente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY utente
+    ADD CONSTRAINT utente_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1903 (class 1259 OID 65916)
+-- Name: i_utente_dtype; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_utente_dtype ON utente USING btree (dtype);
+
+
+--
+-- TOC entry 1911 (class 2606 OID 65922)
+-- Name: attivita_comunita_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY attivita
+    ADD CONSTRAINT attivita_comunita_id_fkey FOREIGN KEY (comunita_id) REFERENCES comunita(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1910 (class 2606 OID 65917)
+-- Name: attivita_utente_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY attivita
+    ADD CONSTRAINT attivita_utente_id_fkey FOREIGN KEY (utente_id) REFERENCES utente(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1912 (class 2606 OID 65927)
+-- Name: utente_comunita_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY utente
+    ADD CONSTRAINT utente_comunita_id_fkey FOREIGN KEY (comunita_id) REFERENCES comunita(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1916 (class 2606 OID 65947)
+-- Name: utente_utente_amici_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY utente_utente
+    ADD CONSTRAINT utente_utente_amici_id_fkey FOREIGN KEY (amici_id) REFERENCES utente(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1915 (class 2606 OID 65942)
+-- Name: utente_utente_membro_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY utente_utente
+    ADD CONSTRAINT utente_utente_membro_id_fkey FOREIGN KEY (membro_id) REFERENCES utente(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1914 (class 2606 OID 65937)
+-- Name: utente_utente_startupsfollowing_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY utente_utente
+    ADD CONSTRAINT utente_utente_startupsfollowing_id_fkey FOREIGN KEY (startupsfollowing_id) REFERENCES utente(id) DEFERRABLE;
+
+
+--
+-- TOC entry 1913 (class 2606 OID 65932)
+-- Name: utente_utente_utente_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY utente_utente
+    ADD CONSTRAINT utente_utente_utente_id_fkey FOREIGN KEY (utente_id) REFERENCES utente(id) DEFERRABLE;
+
+
+--
+-- TOC entry 2037 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2015-06-14 17:47:43
+
+--
+-- PostgreSQL database dump complete
+--
+

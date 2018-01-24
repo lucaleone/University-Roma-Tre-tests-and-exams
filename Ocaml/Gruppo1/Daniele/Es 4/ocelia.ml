@@ -1,0 +1,6 @@
+(* if E then true else false => E *)
+(* if E then false else true => not E *)
+(* if E then F else false => E && F *)
+(* if E then F else true => not E || F *)
+(* if E then true else F => E || F *)
+(* if E then false else F => not E && F *)
