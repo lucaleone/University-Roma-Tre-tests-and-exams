@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="model-unit" transaction-type="RESOURCE_LOCAL">
+		<class>model.Product</class>
+		<class>model.Provider</class>
+		<class>model.Orders</class>
+		<class>model.Customer</class>
+		<class>model.OrderLine</class>
+		<class>model.Address</class>
+		<properties>
+			<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" />
+			<property name="openjpa.ConnectionUserName" value="postgres" />
+			<property name="openjpa.ConnectionPassword" value="2209" />
+	<property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost/products" />
+			<property name="openjpa.jdbc.DBDictionary" value="postgres" />
+  			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction=add,ForeignKeys=true)" /> 
+			<property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE"/>
+  			<property name="openjpa.jdbc.MappingDefaults" value="ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict"/>
+		</properties>
+	</persistence-unit>
+</persistence>

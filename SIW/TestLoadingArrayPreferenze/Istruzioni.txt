@@ -1,0 +1,11 @@
+1) avvia file TestLoadingArrayPreferenze.war
+2) scrivi su browser: http://localhost:8080/TestLoadingArrayPreferenze/
+nota che non c'è la pagina ma solo il nome del progetto:
+ho aggiunto un file web.xml che in automatico ti sposta in index.jsp che a sua volta fa il forward a sa servlet LoadData,
+quindi in pratica serve per far partire il sito da una servlet anziche da una pagina html o jsp
+
+ora LoadData carica un array e va su MostraPrefs
+3) ora sei su MostraPrefs
+guarda come è fatto il codice, nota che non ho usato il form
+4)premi su accetta
+guarda il codice di managePref

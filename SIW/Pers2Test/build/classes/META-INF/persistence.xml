@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="testPersLuca"
+		transaction-type="JTA">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<jta-data-source>PostgreSQL Database</jta-data-source>
+		<!-- <non-jta-data-source>PostgreSQL Database</non-jta-data-source> -->
+		<class>model.Comunita</class>
+		<class>model.Product</class>
+		<class>model.ProdMontagna</class>	
+		<class>model.ProdMare</class>
+		<!-- <class>model.ProdMontagna</class><class>model.ProdMare</class> -->
+		<properties>
+			<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" />
+			<property name="openjpa.ConnectionUserName" value="postgres" />
+			<property name="openjpa.ConnectionPassword" value="2209" />
+			<property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost/testPersLuca" />
+			<property name="openjpa.jdbc.DBDictionary" value="postgres" />
+			<property name="openjpa.jdbc.SynchronizeMappings"
+				value="buildSchema(SchemaAction=add,ForeignKeys=true)" />  <!-- value="buildSchema(ForeignKeys=true)" /> -->
+			<property name="openjpa.Log"
+				value="DefaultLevel=WARN, Runtime=INFO, Tool=INFO, SQL=TRACE" />
+			<property name="openjpa.jdbc.MappingDefaults"
+				value="ForeignKeyDeleteAction=restrict,JoinForeignKeyDeleteAction=restrict" />
+		</properties>
+	</persistence-unit>
+</persistence>
+          
